@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+	<html>
+	
+		<head>
+			<script type="text/javascript">
+			function check()
+			{
+				flag = false;
+				var p = document.getElementsByName("hobby")
+				var cnt = 0;
+
+					for(var i=0;i<p.length;i++)
+					{
+							if(p[i].checked)
+							{
+								cnt++;	
+							}
+					}
+					if(cnt<2)
+					{
+						alert("선택은 2개 이상 해야합니다");
+					}
+					else
+					{
+						flag = true;
+					}
+					return flag
+				}
+				
+			</script>
+			<meta charset="UTF-8">
+			<title>Insert title here</title>
+		</head>
+		
+		<body>
+			<h2>회원가입 정보 입력하시오</h2>
+			<hr>
+			<form action="sam1.jsp" method="post">
+				<label>이름  <input type="text" name="name" size=10></label><br>
+					아이디 <input type="text" name="id" size=10><br>
+					패스워드 <input type="text" name="pwd" size=10><br>
+					패스워드 확인 <input type="text" name="pwdr" size=10><br>
+					이메일 <input type="email" name="email" size=10><br>
+					전화번호<input type="text" name="phoneNumber" size=10><br>
+					남성<input type="radio" name="gender" value="male">
+					여성<input type="radio" name="gender" value="female"><br>
+					<p>취미를 두가지 이상 선택!</p>
+					취미 : 독서<input type="checkbox" name="hobby" value="book">
+						여행<input type="checkbox" name="hobby" value="traveling">
+						음악<input type="checkbox" name="hobby" value="music">
+						영화<input type="checkbox" name="hobby" value="movie">
+						등산<input type="checkbox" name="hobby" value="climb">
+						수영<input type="checkbox" name="hobby" value="swimming">
+						
+						<br>
+						
+				<input type="submit" value="입력완료" onclick="return check()">
+				<input type="reset" value = "취소">
+			</form>
+		</body>
+	</html>

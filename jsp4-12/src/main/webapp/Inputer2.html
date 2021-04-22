@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+					<h1>정보를 입력하시오</h1>
+			<form action="proc2.jsp" method="post">
+			<table>
+				<tr>
+					<th>이름 입력 :</th>
+					<td><input type="text" name="name" id="name"></td>
+				</tr>
+				<tr>
+					<th>국어점수 입력 :</th>
+					<td><input type="text" name="kor" id="kor"></td>
+				</tr>
+				<tr>
+					<th>영어점수 입력 :</th>
+					<td><input type="text" name="eng" id="eng"></td>
+				</tr>
+				<tr>
+					<th>수학점수 입력 :</th>
+					<td><input type="text" name="mat" id="mat"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="전송" id="target" onclick="return check()"></td>
+				</tr>
+			</table>
+			</form>
+			
+			<script type="text/javascript">
+				function check(){
+				if(document.getElementById('name').value == "") return false; 
+				else if(document.getElementById('kor').value == "") return false; 
+				else if(document.getElementById('eng').value == "") return false; 
+				else if(document.getElementById('mat').value == "") return false; 
+				
+				}
+			</script>
+	</body>
+	</html>

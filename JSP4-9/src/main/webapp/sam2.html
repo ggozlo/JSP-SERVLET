@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<script type="text/javascript">
+				function check()
+				{
+					flag = false;
+					var kk= parseInt(document.getElementById("k1").value);
+					var ee = parseInt(document.getElementById("e1").value);
+					var mm = parseInt(document.getElementById("m1").value);
+					
+
+					if( kk>0 && kk<100 && ee>0 && ee<100 && mm>0 && mm<100 ) 
+					{
+						alert("조건충족!");
+						flag = true;
+					}
+					else
+					{
+						alert("범위초과!!");
+						flag = false;
+					}
+					
+					
+					return flag;
+				}  
+			</script>
+			<meta charset="UTF-8">
+			<title>Insert title here</title>
+		</head>
+		<body>
+		
+			<form action="sam2.jsp" method="post">
+				국어<input id ="k1" type ="text" name ="kor"> 
+				영어<input id ="e1" type ="text" name ="eng"> 
+				수학<input id ="m1" type ="text" name ="mat"> 
+				<input type="submit" value="입력완료" onclick="return check()">
+			</form>
+		</body>
+	</html>

@@ -1,0 +1,30 @@
+@charset "UTF-8";@charset "UTF-8";
+header{
+	text-align : center;
+	background-color: #4682B4;
+	height :  90px;
+	line-height: 90px;
+	color: #5D0505;
+}
+nav{
+	text-align : center;
+	background-color: #3CB371;
+	height : 55px;
+	line-height: 55px;
+	 width:100%;
+}
+section{
+	padding-top : 40px;
+	text-align : center;
+	vertical-align: center;
+	background-color: #E0FFFF;
+	height : 500px;
+}
+footer{
+	padding-top : 40px;
+	text-align : center;
+	height : 55px;
+	ling-height:55px;
+	background-color: #4B0000;
+	color:#FFFFFF;
+}

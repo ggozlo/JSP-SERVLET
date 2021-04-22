@@ -97,4 +97,8 @@ hs_err_pid*
 ## ignoring target file
 target/
 
+
+*.jpg
+*.MF
+
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java-web,java
