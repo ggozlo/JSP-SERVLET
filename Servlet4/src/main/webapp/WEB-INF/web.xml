@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Servlet4</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  	<context-param>
+  		<param-name>name</param-name>
+  		<param-value>hyundai</param-value>
+  	</context-param>
+  	<context-param>
+  		<param-name>tel</param-name>
+  		<param-value>010-1111-2222</param-value>
+  	</context-param>
+  	
+  	<servlet>
+  		<servlet-name>SV1</servlet-name>
+  		<servlet-class>ggozlo.SV1</servlet-class>
+  		<init-param>
+  			<param-name>name</param-name>
+  			<param-value>UserA</param-value>
+  		</init-param>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>SV1</servlet-name>
+  		<url-pattern>/SV1</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>SV2</servlet-name>
+  		<servlet-class>ggozlo.SV2</servlet-class>
+  		<init-param>
+  			<param-name>name</param-name>
+  			<param-value>UserB</param-value>
+  		</init-param>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>SV2</servlet-name>
+  		<url-pattern>/SV2</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+  		<servlet-name>SV3</servlet-name>
+  		<servlet-class>ggozlo.SV3</servlet-class>
+  		<init-param>
+  			<param-name>name</param-name>
+  			<param-value>UserC</param-value>
+  		</init-param>
+  	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>SV3</servlet-name>
+  		<url-pattern>/SV3</url-pattern>
+  	</servlet-mapping>
+</web-app>
