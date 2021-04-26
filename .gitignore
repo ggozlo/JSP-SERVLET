@@ -100,5 +100,8 @@ target/
 
 *.jpg
 *.MF
+.classpath
+.project
+
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java-web,java
