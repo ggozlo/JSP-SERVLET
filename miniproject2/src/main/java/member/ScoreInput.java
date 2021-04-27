@@ -44,6 +44,7 @@ public class ScoreInput extends HttpServlet
 			response.sendRedirect("welcome.jsp");
 		}
 		else
+			
 		{
 			response.sendRedirect("scoreForm.jsp");
 		}
