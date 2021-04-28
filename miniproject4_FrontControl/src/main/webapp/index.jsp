@@ -12,5 +12,6 @@
 	<a href="print.do">출력하기</a>
 	<a href="bookModifyForm.jsp">수정하기</a>
 	<a href="bookDeleteForm.jsp">삭제하기</a>
+	<a href="bookSearchForm.jsp">검색하기</a>
 </body>
 </html>

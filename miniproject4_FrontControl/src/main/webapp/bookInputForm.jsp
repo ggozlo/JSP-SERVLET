@@ -8,10 +8,10 @@
 		</head>
 		<body>
 			<form action="input.do" method="post">
-				도서명 <input type="text" name="name">
-				출판사<input type="text" name="publisher">
-			 	가격<input type="text" name="price">
-				판매량<input type="text" name="sales">
+				도서명 <input type="text" name="name"><br/>
+				출판사<input type="text" name="publisher"><br/>
+			 	가격<input type="text" name="price"><br/>
+				판매량<input type="text" name="sales"><br/>
 				<input type="submit" value="전송">
 			</form>
 		</body>

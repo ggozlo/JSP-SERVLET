@@ -124,7 +124,7 @@ public class BookDAO
 			String sql = "UPDATE BOOK SET publisher=?, price=?, sales=? WHERE name=?";
 			psmt = con.prepareStatement(sql);
 			psmt.setString(4, bdto.getName());
-			psmt.setString(1, bdto.getName());
+			psmt.setString(1, bdto.getPublisher());
 			psmt.setInt(2, bdto.getPrice());
 			psmt.setInt(3, bdto.getSales());
 			n  = psmt.executeUpdate();
@@ -141,5 +141,45 @@ public class BookDAO
 			e.printStackTrace();
 		}
 		return n;
+	}
+	
+	public BookDTO bookSearch(String name)
+	{
+		BookDTO bdto = new BookDTO();
+		try
+		{
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/Oracle11g");
+			con = dataSource.getConnection();
+			String sql = "SELECT * FROM BOOK WHERE NAME=?";
+			psmt = con.prepareStatement(sql);
+			psmt.setString(1, name);
+			res  = psmt.executeQuery();
+			
+			if(res.next())
+			{
+				bdto.setName(res.getString("NAME") );
+				bdto.setPublisher(res.getString("PUBLISHER"));
+				bdto.setPrice(res.getInt("PRICE"));
+				bdto.setSales(	res.getInt("SALES"));
+			}
+			else
+			{
+				bdto.setName("존재하지 않는 도서입니다.");
+			}
+		
+	
+			psmt.close();
+			con.close();
+		} 
+		catch (NamingException e)
+		{
+			e.printStackTrace();
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		return bdto;
 	}
 }

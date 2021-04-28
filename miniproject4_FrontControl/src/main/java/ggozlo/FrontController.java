@@ -3,6 +3,7 @@ package ggozlo;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.stream.Collectors;
@@ -102,7 +103,26 @@ public class FrontController extends HttpServlet {
 				response.sendRedirect("error.jsp");
 			}
 		}
-		
+		//-----------------------------------------------------------------------
+			else if(filename.equals("search.do"))
+			{
+
+				
+				BookDTO bdto = bdao.bookSearch( request.getParameter("name"));
+				if(bdto.equals(null))
+				{
+					response.sendRedirect("error.jsp");
+					
+				}
+				else
+				{
+					request.setAttribute("bookDto", bdto);
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/bookSearch.jsp");
+					dispatcher.forward(request, response);
+				}
+				
+				
+			}
 	}
 
 
