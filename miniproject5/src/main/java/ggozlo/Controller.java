@@ -102,6 +102,7 @@ public class Controller extends HttpServlet {
 			if(!name.isEmpty())
 			{
 				session.removeAttribute("name");
+				session.removeAttribute("id");
 				response.sendRedirect("login.jsp");
 			}
 			else
@@ -112,6 +113,7 @@ public class Controller extends HttpServlet {
 		//------------------------------------------------------------------------------------------------------------------
 		else if(filename.equals("info.do"))
 		{
+
 			Optional<MemberDTO> mdto = Optional.ofNullable( mdao.memberInfo( (String)session.getAttribute("id")));
 			if(mdto.isEmpty())
 			{

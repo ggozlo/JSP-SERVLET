@@ -7,8 +7,8 @@
 	<%
 	
 		Optional<ArrayList<MemberDTO>> list = Optional.ofNullable( (ArrayList<MemberDTO>)request.getAttribute("list") );
-
-		if(list.isEmpty())
+		Optional<String> name = Optional.ofNullable( (String)session.getAttribute("name") );
+		if(list.isEmpty() | name.isEmpty() )
 		{
 			response.sendRedirect("login.jsp");
 		}
@@ -23,25 +23,21 @@
 					<th>이름</th>
 				</tr>
 			<%
-				for(MemberDTO mdto : list.get())
+			if(!name.isEmpty())
+			{
+				for(MemberDTO mdto : list.get() )
 				{
 					
 			%>
-			
-			
-			
-
 				<tr> 
-					
 					<td><%= mdto.getId() %></td>
-
-					
 					<td><%= mdto.getName() %></td> 
 				</tr>
 
 				
 				 <%
 				}
+			}
 				 %>
 			</table>
 
