@@ -1,7 +1,7 @@
 <%@page import="java.util.Optional"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="top.jsp" %>
+<jsp:include page="top.jsp"/>
 
 	<script type="text/javascript">
 		function check()
