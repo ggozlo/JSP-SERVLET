@@ -1,16 +1,32 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-	</head>
-	<body>
-		${post.bcontent}
+
+<%@ include file="top.jsp" %>
+<section>
+	
+<table border="1px" width="500px">
+	<tr>
+		<td>${post.bid}</td>
+		<td>${post.btitle}</td>
+		<td>${post.bname}</td>
+	</tr>
+	<tr>
+		<td colspan="2">${post.bdate}</td>
+		<td>${post.bhit}</td>
+	</tr>
+
+	<tr>
+		<td colspan="3" height="250px">${post.bcontent}</td>
+	
+	</tr>
+	<tr>
+		<td><a href="modifyPost.do?id=${post.bid}"><input type="button" value="수정하기"></a></td>
+		<td><a href="delete.do?id=${post.bid }"><input type="button" value="삭제하기"></a></td>
+	</tr>
+</table>
 		
-		<p>
-			<a href="list.do">전체글 보기</a>
-		</p>
-	</body>
-</html>
+
+</section>
+
+<%@ include file="bottom.jsp" %>

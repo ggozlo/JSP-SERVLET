@@ -9,12 +9,21 @@ public class BwriteCommand implements Bcommand
 {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response, BoardDAO bdao) 
+	public String execute(HttpServletRequest request, HttpServletResponse response, BoardDAO bdao) 
 	{
-		 bdao.write( new BoardDTO(
+		 int n = bdao.write( new BoardDTO(
 		request.getParameter("bname"), 
 		request.getParameter("btitle"),
 		request.getParameter("bcontent")));
+		 
+		 if(n == 1)
+		 {
+			 return  "list.do";
+		 }
+		 else
+		 {
+			 return "error.jsp";
+		 }
 	}
 
 }

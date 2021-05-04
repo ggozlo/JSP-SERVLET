@@ -9,16 +9,17 @@ public class BpostCommand implements Bcommand
 {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response, BoardDAO bdao) 
+	public String execute(HttpServletRequest request, HttpServletResponse response, BoardDAO bdao) 
 	{	
 		Optional<BoardDTO> post = Optional.ofNullable( bdao.getPost( Integer.parseInt( request.getParameter("id"))));
 		if(post.isEmpty())
 		{
-			System.out.println("오류");
+			return "error.jsp";
 		}
 		else
 		{		
 			request.setAttribute("post", post.get());
+			return "printPost.jsp";
 		}
 		
 	}
