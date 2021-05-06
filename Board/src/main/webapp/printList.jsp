@@ -23,7 +23,10 @@
 				<tr>
 					<td>${bdto.bid}</td>
 					<td>${bdto.bname}</td>
-					<td><a href="post.do?id=${bdto.bid}"> ${bdto.btitle}</a></td>
+					<td id="title"><c:forEach begin="1" end="${bdto.bindent}">
+						<c:out value="--" ></c:out>
+					</c:forEach>
+					<a href="post.do?id=${bdto.bid}"> ${bdto.btitle}</a></td>
 					<td>${bdto.bdate}</td>
 					<c:set var="hit" value="&#8361;${bdto.bhit}"/>
 					<td> ${hit}</td>
@@ -38,6 +41,7 @@
 			<tr>
 
 	</table>
+	
 
 </section>
 

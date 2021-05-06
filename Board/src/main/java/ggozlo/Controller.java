@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 
 public class Controller extends HttpServlet 
@@ -39,6 +40,9 @@ public class Controller extends HttpServlet
 		
 		Path path = Paths.get( request.getRequestURI() );
 		String filename = path.getFileName().toString();	
+		
+		HttpSession session;
+
 		
 		//--------------------------------------------------------------------------------------작성
 		if(filename.equals("write.do"))
@@ -84,6 +88,28 @@ public class Controller extends HttpServlet
 		{
 			comm = new BsearchCommand();
 			vpage =  comm.execute(request, response, bdao);
+			
+		}
+		//--------------------------------------------------------------------------------------게시글검색
+		else if(filename.equals("replyView.do"))
+		{
+			comm = new BreplyViewCommand();
+			vpage =  comm.execute(request, response, bdao);
+			
+		}
+		//--------------------------------------------------------------------------------------게시글검색
+		else if(filename.equals("addReply.do"))
+		{
+			comm = new BreplyCommand();
+			vpage =  comm.execute(request, response, bdao);
+			
+		}
+		//--------------------------------------------------------------------------------------게시글검색
+		else if(filename.equals("logout.do"))
+		{
+			session = request.getSession();
+			session.removeAttribute("name");
+			vpage = "xloginForm.jsp";
 			
 		}
 
