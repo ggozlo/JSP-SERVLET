@@ -25,7 +25,7 @@
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="bname" value="${post.bname}"></td>
+					<td><input type="text" name="bname" value="${name}"></td>
 				</tr>
 				<tr>
 					<td>제목</td>

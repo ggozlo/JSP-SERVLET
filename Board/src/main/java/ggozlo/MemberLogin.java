@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 /**
  * Servlet implementation class memberServletLogin
  */
-@WebServlet("/MSL")
+@WebServlet("/login")
 public class MemberLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -51,21 +51,29 @@ public class MemberLogin extends HttpServlet {
 			psmt.setString(1, request.getParameter("id"));
 			psmt.setString(2, request.getParameter("pw"));
 			res = psmt.executeQuery();
-			if(res.isBeforeFirst())
+			if(!res.isBeforeFirst())
 			{
-				while(res.next())
-				{
-				session.setAttribute("name", res.getString("NAME"));
-				response.sendRedirect("index.jsp");
+				
+				
 			
-				}
+				
+				res.close();
+				psmt.close();
+				con.close();
+				response.sendRedirect("xloginForm.jsp");
 			}
 			else
 			{
-				response.sendRedirect("xloginForm.jsp");
+				res.next();
+				session.setAttribute("name", res.getString("NAME"));
+				
+				session.setMaxInactiveInterval(30);
+				res.close();
+				psmt.close();
+				con.close();
+				response.sendRedirect("index.jsp");
 			}
-			psmt.close();
-			con.close();
+			
 		} 
 		catch (NamingException e) 
 		{

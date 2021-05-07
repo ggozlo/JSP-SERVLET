@@ -1,4 +1,6 @@
 
+<%@page import="ggozlo.BoardDTO"%>
+<%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -16,7 +18,14 @@
 		<td colspan="2"><input type="text" name="bdate" value="${post.bdate}" readonly="readonly"></td>
 		<td><input type="text" name="bhit" value="${post.bhit}" readonly="readonly"></td>
 	</tr>
-
+	<tr>
+		
+		<td><img src="./file/${post.filename}" width="100px" height="100px" ></td>
+		
+ 
+		
+	</tr>
+	
 	<tr>
 		<td colspan="3"><textarea rows="15" cols="60" readonly="readonly">${post.bcontent}</textarea></td>
 	
@@ -29,7 +38,7 @@
 
 </table>
 		
-
-</section>
+		
+	</section>
 
 <%@ include file="bottom.jsp" %>

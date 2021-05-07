@@ -17,9 +17,9 @@
 		}
 	%>
 	<header>
-		<h1>${name}님 어서오세요!</h1>
+		<h1>게시판</h1>
 	</header>
-	<hr>
+
 	<nav>
 		<span><a href="writeForm.jsp">글쓰기</a></span>
 		<span><a href="list.do">목록으로</a></span>
@@ -28,4 +28,3 @@
 		<span><a href="searchPost.jsp">글검색</a></span>
 		<span><a href="logout.do">로그아웃</a></span>
 	</nav>
-	<hr>

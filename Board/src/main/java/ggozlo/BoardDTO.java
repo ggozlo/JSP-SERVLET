@@ -5,18 +5,20 @@ public class BoardDTO
 	private int bid;
 	private String bname, btitle, bcontent, bdate;
 	private int bgroup, bstep, bindent,bhit;
+	private String filename;
 	
 	
 	
 	
-	public BoardDTO(String bname, String btitle, String bcontent) {
+	public BoardDTO(String bname, String btitle, String bcontent, String filename) {
 		super();
 		this.bname = bname;
 		this.btitle = btitle;
 		this.bcontent = bcontent;
+		this.filename = filename;
 	}
 	public BoardDTO(int bid, String bname, String btitle, String bcontent, String bdate, int bgroup, int bstep,
-			int bindent, int bhit) {
+			int bindent, int bhit, String filename) {
 		super();
 		this.bid = bid;
 		this.bname = bname;
@@ -27,6 +29,7 @@ public class BoardDTO
 		this.bstep = bstep;
 		this.bindent = bindent;
 		this.bhit = bhit;
+		this.filename = filename;
 	}
 	public BoardDTO() {
 		super();
@@ -34,6 +37,12 @@ public class BoardDTO
 	}
 	public int getBid() {
 		return bid;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 	public void setBid(int bid) {
 		this.bid = bid;

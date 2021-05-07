@@ -34,12 +34,13 @@ public class BoardDAO
 		try
 		{
 			con = getConnection();
-			sql = "INSERT INTO BOARD (BID, BNAME, BTITLE, BCONTENT, BHIT, BGROUP, BSTEP, BINDENT) "
-					+ "VALUES ( BOARD_SEQ.nextval, ?, ?, ?, 0, BOARD_SEQ.currval, 0, 0)";
+			sql = "INSERT INTO BOARD (BID, BNAME, BTITLE, BCONTENT, BHIT, BGROUP, BSTEP, BINDENT, FILENAME) "
+					+ "VALUES ( BOARD_SEQ.nextval, ?, ?, ?, 0, BOARD_SEQ.currval, 0, 0,?)";
 			psmt= con.prepareStatement(sql);
 			psmt.setString(1, bdto.getBname());
 			psmt.setString(2, bdto.getBtitle());
 			psmt.setString(3, bdto.getBcontent());
+			psmt.setString(4, bdto.getFilename());
 			n = psmt.executeUpdate();
 			con.commit();
 			psmt.close();
@@ -79,7 +80,8 @@ public class BoardDAO
 							res.getInt(5), 
 							res.getInt(6), 
 							res.getInt(7), 
-							res.getInt(8)));
+							res.getInt(8),
+							null));
 				}
 			}
 			res.close();
@@ -106,7 +108,7 @@ public class BoardDAO
 			psmt.setInt(1, bid);
 			psmt.executeUpdate();
 	}
-	
+	//---------------------------------------------------------------------------------------------------------
 	public BoardDTO getPost(int BID)
 	{
 		BoardDTO post = null;
@@ -131,7 +133,8 @@ public class BoardDAO
 							res.getInt(6), 
 							res.getInt(7), 
 							res.getInt(8), 
-							res.getInt(9));
+							res.getInt(9),
+							res.getString(10));
 				}
 				
 			}
@@ -149,7 +152,6 @@ public class BoardDAO
 		}
 		catch (NamingException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally
@@ -202,10 +204,9 @@ public class BoardDAO
 		return n;
 	}
 	//---------------------------------------------------------------------------------------------------------
-	public void deletePost(int bid, String bname)
+	public int deletePost(int bid, String bname)
 	{
 		int n = 0;
-		
 		try
 		{
 			con = getConnection();
@@ -229,6 +230,7 @@ public class BoardDAO
 		{
 			e.printStackTrace();
 		}
+		return n;
 
 	}
 	//---------------------------------------------------------------------------------------------------------
@@ -256,7 +258,8 @@ public class BoardDAO
 							res.getInt(5), 
 							res.getInt(6), 
 							res.getInt(7), 
-							res.getInt(8)));
+							res.getInt(8),
+							null));
 				}
 			}
 			res.close();
@@ -390,4 +393,5 @@ public class BoardDAO
 		
 		return bdto;
 	}
+	
 }

@@ -2,9 +2,10 @@
     pageEncoding="UTF-8"%>
 
 <%@ include file="top.jsp" %>
-<section>
-	
 
+
+<section>
+${name}님 환영합니다!
 </section>
 
 <%@ include file="bottom.jsp" %>

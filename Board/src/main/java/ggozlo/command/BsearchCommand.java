@@ -1,10 +1,13 @@
-package ggozlo;
+package ggozlo.command;
 
 import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import ggozlo.BoardDAO;
+import ggozlo.BoardDTO;
 
 public class BsearchCommand implements Bcommand
 {

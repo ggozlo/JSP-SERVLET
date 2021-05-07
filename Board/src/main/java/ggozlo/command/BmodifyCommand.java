@@ -1,7 +1,10 @@
-package ggozlo;
+package ggozlo.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import ggozlo.BoardDAO;
+import ggozlo.BoardDTO;
 
 public class BmodifyCommand implements Bcommand
 {

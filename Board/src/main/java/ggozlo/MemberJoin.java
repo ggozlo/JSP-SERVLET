@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 
 
 
-@WebServlet("/MS")
+@WebServlet("/join")
 public class MemberJoin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

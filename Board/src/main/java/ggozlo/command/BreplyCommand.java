@@ -1,7 +1,10 @@
-package ggozlo;
+package ggozlo.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import ggozlo.BoardDAO;
+import ggozlo.BoardDTO;
 
 public class BreplyCommand implements Bcommand
 {
@@ -18,7 +21,8 @@ public class BreplyCommand implements Bcommand
 				Integer.parseInt(request.getParameter("bgroup")),
 				Integer.parseInt(request.getParameter("bstep")),
 				Integer.parseInt(request.getParameter("bindent")),
-				0));
+				0,
+				null));
 		
 		if(n==1)
 		{

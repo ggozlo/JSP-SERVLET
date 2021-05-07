@@ -1,4 +1,4 @@
-package ggozlo;
+package ggozlo.command;
 
 
 
@@ -8,6 +8,9 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import ggozlo.BoardDAO;
+import ggozlo.BoardDTO;
 
 public class BlistCommand implements Bcommand
 {

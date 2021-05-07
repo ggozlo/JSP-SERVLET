@@ -17,6 +17,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import ggozlo.command.Bcommand;
+import ggozlo.command.BdeleteCommand;
+import ggozlo.command.BdownloadCommand;
+import ggozlo.command.BlistCommand;
+import ggozlo.command.BmodifyCommand;
+import ggozlo.command.BpostCommand;
+import ggozlo.command.BreplyCommand;
+import ggozlo.command.BreplyViewCommand;
+import ggozlo.command.BsearchCommand;
+import ggozlo.command.BwriteCommand;
+
 
 public class Controller extends HttpServlet 
 {
@@ -38,6 +49,7 @@ public class Controller extends HttpServlet
 		response.setContentType("text/html; charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
 		
+
 		Path path = Paths.get( request.getRequestURI() );
 		String filename = path.getFileName().toString();	
 		
@@ -90,21 +102,21 @@ public class Controller extends HttpServlet
 			vpage =  comm.execute(request, response, bdao);
 			
 		}
-		//--------------------------------------------------------------------------------------게시글검색
+		//--------------------------------------------------------------------------------------답글 보기
 		else if(filename.equals("replyView.do"))
 		{
 			comm = new BreplyViewCommand();
 			vpage =  comm.execute(request, response, bdao);
 			
 		}
-		//--------------------------------------------------------------------------------------게시글검색
+		//--------------------------------------------------------------------------------------답글추가
 		else if(filename.equals("addReply.do"))
 		{
 			comm = new BreplyCommand();
 			vpage =  comm.execute(request, response, bdao);
 			
 		}
-		//--------------------------------------------------------------------------------------게시글검색
+		//--------------------------------------------------------------------------------------로그아웃
 		else if(filename.equals("logout.do"))
 		{
 			session = request.getSession();
@@ -112,6 +124,10 @@ public class Controller extends HttpServlet
 			vpage = "xloginForm.jsp";
 			
 		}
+
+		
+	
+	
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(vpage);
 		dispatcher.forward(request, response);
