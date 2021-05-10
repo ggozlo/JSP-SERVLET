@@ -1,3 +1,4 @@
+<%@page import="java.util.Arrays"%>
 <%@page import="javax.sql.DataSource"%>
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="javax.naming.Context"%>
@@ -28,7 +29,7 @@
 	psmt = con.prepareStatement(sql);
 	psmt.setString(1, request.getParameter("name"));
 	psmt.setString(2, request.getParameter("gender"));
-	psmt.setString(3, request.getParameterValues("season").toString());
+	psmt.setString(3, Arrays.toString(request.getParameterValues("season")));
 	psmt.executeUpdate();
 	con.commit();
 	psmt.close();
@@ -45,30 +46,32 @@
 	res.next();
 	
 %>
-이름: <strong> <%=res.getString(1) %> </strong>
-성별: <strong> <%=res.getString(2) %> </strong>
+이름: <strong> <%=res.getString(1) %> </strong><br/>
+성별: <strong> <%=res.getString(2) %> </strong><br/>
 당신이 좋아하는 계절은 
 <%
-	if(res.getString(3).contains("봄"))
+	
+
+	if(res.getString(3).contains("spring"))
 	{
 		out.print("<strong> 봄 </strong>입니다.");
 	}
-	if(res.getString(3).contains("여름"))
+	if(res.getString(3).contains("summer"))
 	{
 		out.print("<strong> 여름 </strong>입니다.");
 	}
-	if(res.getString(3).contains("가을"))
+	if(res.getString(3).contains("fall"))
 	{
 		out.print("<strong> 가을 </strong>입니다.");
 	}
-	if(res.getString(3).contains("겨울"))
+	if(res.getString(3).contains("winter"))
 	{
 		out.print("<strong> 겨울 </strong>입니다.");
 	}
 	res.close();
 	psmt.close();
 	con.close();
-%>
+%><br/>
 <a href="researchForm.jsp">다시</a>
 </body>
 </html>

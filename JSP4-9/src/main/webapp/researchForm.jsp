@@ -26,10 +26,10 @@
 	<tr>
 		<td>좋아하는 계절:</td>
 		<td>
-			<input type="checkbox" name="season" value="봄">봄
-			<input type="checkbox" name="season" value="여름">여름
-			<input type="checkbox" name="season" value="가을">가을
-			<input type="checkbox" name="season" value="겨울">겨울
+			<input type="checkbox" name="season" value="spring">봄
+			<input type="checkbox" name="season" value="summer">여름
+			<input type="checkbox" name="season" value="fall">가을
+			<input type="checkbox" name="season" value="winter">겨울
 		</td>
 	</tr>
 	

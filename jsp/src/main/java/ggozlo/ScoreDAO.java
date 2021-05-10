@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScoreDAO //Data Access Object
 {
@@ -52,8 +54,9 @@ public class ScoreDAO //Data Access Object
 	}
 	
 	
-	public ResultSet scorePrint()
+	public List<ScoreDTO> scorePrint()
 	{
+		List<ScoreDTO> list  = new ArrayList<>();
 		try
 		{
 			Class.forName(driver);
@@ -61,6 +64,20 @@ public class ScoreDAO //Data Access Object
 			String sql = "SELECT * FROM SCORE";
 			psmt = con.prepareStatement(sql);
 			res = psmt.executeQuery();
+			if(res.isBeforeFirst())
+			{
+				while(res.next())
+				{
+					list.add(new ScoreDTO(
+							res.getString(1), 
+							res.getInt(2), 
+							res.getInt(3), 
+							res.getInt(4)));
+				}
+			}
+			res.close();
+			psmt.close();
+			con.close();
 			
 		}
 		catch (ClassNotFoundException e)
@@ -71,7 +88,7 @@ public class ScoreDAO //Data Access Object
 		{
 			e.printStackTrace();
 		}
-		return res ;
+		return  list;
 		
 	}
 	
@@ -87,6 +104,7 @@ public class ScoreDAO //Data Access Object
 			psmt.setString(1, deleteName);
 			n = psmt.executeUpdate();
 			con.commit();
+			psmt.close();
 			con.close();
 		} 
 		catch (ClassNotFoundException e) 
@@ -115,6 +133,7 @@ public class ScoreDAO //Data Access Object
 			psmt.setString(4, sdto.getName() );
 			n = psmt.executeUpdate();
 			con.commit();
+			psmt.close();
 			con.close();
 		} 
 		catch (ClassNotFoundException e) 
@@ -130,8 +149,9 @@ public class ScoreDAO //Data Access Object
 		return n;	
 	}
 	
-	public ResultSet scoreSearch(String searchName)
+	public List<ScoreDTO> scoreSearch(String searchName)
 	{
+		List<ScoreDTO> list  = new ArrayList<>();
 		try 
 		{
 			Class.forName(driver);
@@ -140,6 +160,20 @@ public class ScoreDAO //Data Access Object
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, searchName);
 			res = psmt.executeQuery();
+			if(res.isBeforeFirst())
+			{
+				while(res.next())
+				{
+					list.add(new ScoreDTO(
+							res.getString(1), 
+							res.getInt(2), 
+							res.getInt(3), 
+							res.getInt(4)));
+				}
+			}
+			res.close();
+			psmt.close();
+			con.close();
 		} 
 		catch (ClassNotFoundException e)
 		{
@@ -151,7 +185,7 @@ public class ScoreDAO //Data Access Object
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return res;
+		return list;
 		
 	}
 }

@@ -22,14 +22,6 @@
 		%>
 		<%
 			request.setCharacterEncoding("UTF-8");
-			//name = request.getParameter("name");
-			//kor = Integer.parseInt(request.getParameter("kor"));
-			//eng = Integer.parseInt(request.getParameter("eng"));
-			//mat = Integer.parseInt(request.getParameter("mat"));
-			//name = scoreDto.getName();
-			//kor = scoreDto.getKor();
-			//eng = scoreDto.getEng();
-			//mat = scoreDto.getMat();
 			ScoreDTO sdto = new ScoreDTO(	scoreDto.getName(),
 											scoreDto.getKor(),
 											scoreDto.getEng(),

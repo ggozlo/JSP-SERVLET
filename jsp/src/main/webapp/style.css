@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+header{
+	height: 50px;
+	text-align: center;
+	background-color: yellow;
+	height: 75px;
+}
+nav{
+	text-align: center;
+	font-style: italic;
+	background-color: skyblue;
+	height: 25px;
+}
+span{
+	margin: 20px;
+	
+}
+section{
+	height: 450px;
+	text-align: center;
+	}
+table{
+	margin: auto;
+}
+footer{
+	text-align: center;
+	background-color: brown;
+	height: 100px;
+}
+#title{
+	text-align: left;
+}
+div{
+	margin: auto;
+}
